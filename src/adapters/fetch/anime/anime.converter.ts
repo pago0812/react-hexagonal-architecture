@@ -6,6 +6,7 @@ const convertAnime = (animeDto: AnimeDto): Anime => {
     id: animeDto.mal_id,
     name: animeDto.title,
     imageUrl: animeDto.images.jpg.image_url,
+    genres: animeDto.genres.map((genre) => genre.name),
   };
 };
 

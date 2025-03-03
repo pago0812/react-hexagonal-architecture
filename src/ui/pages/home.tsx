@@ -1,14 +1,13 @@
 import { Fragment } from "react";
 import { Anime } from "@domain/anime/anime.entity";
-import { useFindAllAnimes } from "@use-cases/anime/find-all-animes.case";
+import { FindAllAnimesUseCase } from "@use-cases/anime/find-all-animes/find-all-animes.case";
 import { AnimeFetchRepository } from "@adapters/fetch/anime/anime-fetch.repository";
 import { AnimeCard } from "@components/anime-card/anime-card";
 import styles from "./home.module.css";
 
 const Home = () => {
-  const { animeList, isFetchingAnimeList } = useFindAllAnimes(
-    AnimeFetchRepository()
-  );
+  const { animeList, isFetchingAnimeList } =
+    FindAllAnimesUseCase().useFindAllAnimes(AnimeFetchRepository());
 
   if (isFetchingAnimeList) {
     return <div>Loading...</div>;

@@ -1,7 +1,7 @@
 import type { Anime } from "./anime.entity";
 
-interface AnimeRepository {
+interface IAnimeRepository {
   findAll(): Promise<Anime[]>;
 }
 
-export type { AnimeRepository };
+export type { IAnimeRepository };

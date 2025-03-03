@@ -1,4 +1,4 @@
-import { AnimeRepository } from "@domain/anime/anime.respository";
+import { IAnimeRepository } from "@domain/anime/anime.respository.interface";
 import { AnimeFindAllDto } from "./anime-dto.entity";
 import { convertAnime } from "./anime.converter";
 
@@ -14,7 +14,7 @@ const AnimeFetchRepository = () => {
 
   return {
     findAll,
-  } as AnimeRepository;
+  } as IAnimeRepository;
 };
 
 export { AnimeFetchRepository };

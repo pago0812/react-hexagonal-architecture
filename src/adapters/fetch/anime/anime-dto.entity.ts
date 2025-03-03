@@ -8,6 +8,9 @@ interface AnimeDto {
       large_image_url: string;
     };
   };
+  genres: {
+    name: string;
+  }[];
 }
 
 interface AnimeFindAllDto {
