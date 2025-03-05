@@ -1,5 +1,33 @@
-.anime-container {
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    gap: 16px;
+.mainContainer {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.animeContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  max-width: 1280px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #c7ccd1;
+
+  font-size: 1rem;
+  cursor: pointer;
 }

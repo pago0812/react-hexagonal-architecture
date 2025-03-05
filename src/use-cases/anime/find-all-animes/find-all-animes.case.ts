@@ -1,16 +1,31 @@
 import { useQuery } from "@tanstack/react-query";
 
-import { IAnimeRepository } from "@domain/anime/anime.respository.interface";
-import { IFindAllAnimesCase } from "./find-all-animes.case.interface";
+import type {
+  IFindAllAnimesCase,
+  IFindAllAnimesCaseRequest,
+  IFindAllAnimesCaseResponse,
+} from "@use-cases/anime/find-all-animes/find-all-animes.type";
 
 const FindAllAnimesUseCase = (): IFindAllAnimesCase => {
-  const useFindAllAnimes = (respository: IAnimeRepository) => {
-    const { data: animeList, isFetching: isFetchingAnimeList } = useQuery({
-      queryKey: ["findAllAnimes"],
-      queryFn: async () => await respository.findAll(),
+  const useFindAllAnimes = (
+    request: IFindAllAnimesCaseRequest
+  ): IFindAllAnimesCaseResponse => {
+    const { data, isFetching: isFetchingAnimeList } = useQuery({
+      queryKey: ["findAllAnimes", request.query, request.page],
+      queryFn: async () =>
+        await request.respository.findAll({
+          query: request.query,
+          page: request.page,
+          limit: request.limit,
+        }),
+      staleTime: Infinity,
     });
 
-    return { animeList, isFetchingAnimeList };
+    return {
+      animeList: data?.data,
+      animeListPagination: data?.pagination,
+      isFetchingAnimeList,
+    };
   };
 
   return { useFindAllAnimes };
