@@ -2,6 +2,7 @@
   "name": "react-hexagonal-architecture",
   "version": "1.0.0",
   "type": "module",
+  "homepage": "https://pago0812.github.io/react-hexagonal-architecture/",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
