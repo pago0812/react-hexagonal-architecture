@@ -12,7 +12,7 @@ const AnimeFetchRepository = (): IAnimeRepository => {
     request: IFindAllRequest
   ): Promise<IFindAllResponse> => {
     const response = await fetch(
-      `https://api.jikan.moe/v4/anime?q=${request.query}&page=${request.page}&limit=${request.limit}`
+      `https://api.jikan.moe/v4/anime?sfw=true&q=${request.query}&page=${request.page}&limit=${request.limit}`
     );
     if (!response.ok) {
       throw new Error("Error fetching data");
