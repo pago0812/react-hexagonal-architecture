@@ -22,6 +22,7 @@ const Home = () => {
   return (
     <div className={styles.mainContainer}>
       <input
+        className={styles.searchInput}
         type="text"
         value={query}
         onChange={(e) => {
