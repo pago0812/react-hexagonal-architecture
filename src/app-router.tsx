@@ -3,7 +3,7 @@ import Home from "./ui/pages/home.component";
 
 const AppRouter = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/react-hexagonal-architecture">
       <Routes>
         <Route index element={<Home />} />
       </Routes>
